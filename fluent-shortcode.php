@@ -1,4 +1,6 @@
 <?php
+//Define Dirpath for hooks
+//define( 'DIR_PATH', plugin_dir_path( __FILE__ ) );
 
 /*
  * Plugin Name:       Fluent Shortcode
@@ -10,8 +12,61 @@
  * Author URI:        https://shiamch.com/
  */
 
-define('FLUENT_SHORTCODE', 'fluent-shortcode');
 
-register_activation_hook(__FILE__, );
+require_once plugin_dir_path(__FILE__) . 'includes/my-class.php';
 
-register_deactivation_hook(__FILE__, );
+$my_class_instance = new My_Class();
+
+echo $my_class_instance->my_function();
+
+
+//require __DIR__ . '/vendor/autoload.php';
+
+
+//require_once plugin_dir_path( __FILE__ ) . 'include/ActivationHandler.php';
+
+//$test = new ActivationHandler();
+//
+//$test->addShortcode();
+
+//
+//if ( ! class_exists( 'FluentShortcode' ) ) {
+//    class FluentShortcode {
+//
+//        /**
+//         * Constructor
+//         */
+//        public function __construct() {
+//            $this->setup_actions();
+//        }
+//
+//        /**
+//         * Setting up Hooks
+//         */
+//        public function setup_actions() {
+//            //Main plugin hooks
+//            register_activation_hook( DIR_PATH, array( 'FluentShortcode', 'activate' ) );
+//            register_deactivation_hook( DIR_PATH, array( 'FluentShortcode', 'deactivate' ) );
+//        }
+//
+//        /**
+//         * Activate callback
+//         */
+//        public function activate() {
+//            //Activation code in here
+//            new \FluentBoards\App\Hooks\Handlers\ActivationHandler();
+//        }
+//
+//        /**
+//         * Deactivate callback
+//         */
+//        public static function deactivate() {
+//            //Deactivation code in here
+//        }
+//
+//    }
+//
+//
+//    // instantiate the plugin class
+//    $wp_plugin_template = new FluentShortcode();
+//}
